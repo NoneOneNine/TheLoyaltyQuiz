@@ -7,8 +7,9 @@ YELLOW = (255, 217, 102)
 WHITE = (255, 255, 255)
 HOVER = (215, 252, 212)
 
+# text sizes
 TITLE_SIZE = 108
-HEADER_SIZE = 48
+HEADER_SIZE = 64
 TEXT_SIZE = 36
 
 # heart sprites
@@ -48,7 +49,7 @@ def play():
         SCREEN.fill(BLUE)
 
         # Border
-        pygame.draw.rect(SCREEN, YELLOW, pygame.Rect(40, 40, WIDTH - 90, HEIGHT - 155), 5, 3)
+        pygame.draw.rect(SCREEN, YELLOW, pygame.Rect(40, 40, WIDTH-90, HEIGHT-155), 5, 3)
 
         # Back button
         back_button = Button(image=back_arrow, pos=(100, 100),
@@ -58,6 +59,17 @@ def play():
 
         # Categories title
         SCREEN.blit(categories_title, (WIDTH/2 - categories_title.get_width()/2, 100))
+
+        # Category buttons
+        pygame.draw.rect(SCREEN, YELLOW, pygame.Rect(WIDTH/2-175, HEIGHT/2-420, 160, 160), 5, 3)
+        pygame.draw.rect(SCREEN, YELLOW, pygame.Rect(WIDTH/2+15, HEIGHT/2-420, 160, 160), 5, 3)
+        pygame.draw.rect(SCREEN, YELLOW, pygame.Rect(WIDTH/2-175, HEIGHT/2-235, 160, 160), 5, 3)
+        pygame.draw.rect(SCREEN, YELLOW, pygame.Rect(WIDTH/2+15, HEIGHT/2-235, 160, 160), 5, 3)
+        pygame.draw.rect(SCREEN, YELLOW, pygame.Rect(WIDTH/2-175, HEIGHT/2-50, 160, 160), 5, 3)
+        pygame.draw.rect(SCREEN, YELLOW, pygame.Rect(WIDTH/2+15, HEIGHT/2-50, 160, 160), 5, 3)
+        pygame.draw.rect(SCREEN, YELLOW, pygame.Rect(WIDTH/2-175, HEIGHT/2+135, 160, 160), 5, 3)
+        pygame.draw.rect(SCREEN, YELLOW, pygame.Rect(WIDTH/2+15, HEIGHT/2+135, 160, 160), 5, 3)
+
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -74,9 +86,9 @@ def main_menu():
     my_font_bold = get_bold_font(TITLE_SIZE)
     game_title = my_font_bold.render("LOYALTY QUIZ", True, YELLOW)
 
-    play_button = Button(image=None, pos=(WIDTH/2, HEIGHT/2 + 50),
+    play_button = Button(image=None, pos=(WIDTH/2, HEIGHT/2+50),
                          text_input="START GAME", font=get_font(TEXT_SIZE), base_color=WHITE, hovering_color=HOVER)
-    quit_button = Button(image=None, pos=(WIDTH/2, HEIGHT/2 + 100),
+    quit_button = Button(image=None, pos=(WIDTH/2, HEIGHT/2+100),
                          text_input="QUIT", font=get_font(TEXT_SIZE), base_color=WHITE, hovering_color=HOVER)
 
     while True:
@@ -85,7 +97,7 @@ def main_menu():
         SCREEN.fill(BLUE)
 
         # Border
-        pygame.draw.rect(SCREEN, YELLOW, pygame.Rect(40, 40, WIDTH - 90, HEIGHT - 155), 5, 3)
+        pygame.draw.rect(SCREEN, YELLOW, pygame.Rect(40, 40, WIDTH-90, HEIGHT-155), 5, 3)
 
         # Hearts
         SCREEN.blit(heart, heart.get_rect(center=(WIDTH/2 - heart_padding, 300)))
