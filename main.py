@@ -1,6 +1,9 @@
 import pygame, os, sys
 from button import Button
 
+# Scaling factor for different monitors
+SF = 0.75
+
 # RGB
 BLUE = (28, 69, 135)
 YELLOW = (255, 217, 102)
@@ -61,14 +64,14 @@ def play():
         SCREEN.blit(categories_title, (WIDTH/2 - categories_title.get_width()/2, 100))
 
         # Category buttons
-        pygame.draw.rect(SCREEN, YELLOW, pygame.Rect(WIDTH/2-175, HEIGHT/2-420, 160, 160), 5, 3)
-        pygame.draw.rect(SCREEN, YELLOW, pygame.Rect(WIDTH/2+15, HEIGHT/2-420, 160, 160), 5, 3)
-        pygame.draw.rect(SCREEN, YELLOW, pygame.Rect(WIDTH/2-175, HEIGHT/2-235, 160, 160), 5, 3)
-        pygame.draw.rect(SCREEN, YELLOW, pygame.Rect(WIDTH/2+15, HEIGHT/2-235, 160, 160), 5, 3)
-        pygame.draw.rect(SCREEN, YELLOW, pygame.Rect(WIDTH/2-175, HEIGHT/2-50, 160, 160), 5, 3)
-        pygame.draw.rect(SCREEN, YELLOW, pygame.Rect(WIDTH/2+15, HEIGHT/2-50, 160, 160), 5, 3)
-        pygame.draw.rect(SCREEN, YELLOW, pygame.Rect(WIDTH/2-175, HEIGHT/2+135, 160, 160), 5, 3)
-        pygame.draw.rect(SCREEN, YELLOW, pygame.Rect(WIDTH/2+15, HEIGHT/2+135, 160, 160), 5, 3)
+        pygame.draw.rect(SCREEN, YELLOW, pygame.Rect(WIDTH/2-175*SF, HEIGHT/2-420*SF, 160*SF, 160*SF), 5, 3)  # Squares were previously 160
+        pygame.draw.rect(SCREEN, YELLOW, pygame.Rect(WIDTH/2+15*SF, HEIGHT/2-420*SF, 160*SF, 160*SF), 5, 3)
+        pygame.draw.rect(SCREEN, YELLOW, pygame.Rect(WIDTH/2-175*SF, HEIGHT/2-235*SF, 160*SF, 160*SF), 5, 3)
+        pygame.draw.rect(SCREEN, YELLOW, pygame.Rect(WIDTH/2+15*SF, HEIGHT/2-235*SF, 160*SF, 160*SF), 5, 3)
+        pygame.draw.rect(SCREEN, YELLOW, pygame.Rect(WIDTH/2-175*SF, HEIGHT/2-50*SF, 160*SF, 160*SF), 5, 3)
+        pygame.draw.rect(SCREEN, YELLOW, pygame.Rect(WIDTH/2+15*SF, HEIGHT/2-50*SF, 160*SF, 160*SF), 5, 3)
+        pygame.draw.rect(SCREEN, YELLOW, pygame.Rect(WIDTH/2-175*SF, HEIGHT/2+135*SF, 160*SF, 160*SF), 5, 3)
+        pygame.draw.rect(SCREEN, YELLOW, pygame.Rect(WIDTH/2+15*SF, HEIGHT/2+135*SF, 160*SF, 160*SF), 5, 3)
 
 
         for event in pygame.event.get():
@@ -100,9 +103,9 @@ def main_menu():
         pygame.draw.rect(SCREEN, YELLOW, pygame.Rect(40, 40, WIDTH-90, HEIGHT-155), 5, 3)
 
         # Hearts
-        SCREEN.blit(heart, heart.get_rect(center=(WIDTH/2 - heart_padding, 300)))
-        SCREEN.blit(heart, heart.get_rect(center=(WIDTH/2, 300)))
-        SCREEN.blit(heart, heart.get_rect(center=(WIDTH/2 + heart_padding, 300)))
+        SCREEN.blit(heart, heart.get_rect(center=(WIDTH/2 - heart_padding, HEIGHT/4)))
+        SCREEN.blit(heart, heart.get_rect(center=(WIDTH/2, HEIGHT/4)))
+        SCREEN.blit(heart, heart.get_rect(center=(WIDTH/2 + heart_padding, HEIGHT/4)))
 
         # Game title
         SCREEN.blit(game_title, (WIDTH/2 - game_title.get_width()/2, HEIGHT/2 - game_title.get_height()))
